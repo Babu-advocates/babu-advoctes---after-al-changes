@@ -601,9 +601,9 @@ const LoanRecovery = () => {
             <div className="px-6 py-8">
               {/* Filters Section */}
               <div className="mb-8 bg-white/80 backdrop-blur-sm rounded-lg shadow-card border border-white/20 p-6">
-                <div className="space-y-6">
+                <div className="space-y-3">
                   {/* Basic Filters - Always Visible */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                     <div className="relative">
                       <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
                       <Input placeholder="Search case number, name..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="pl-10 bg-white/50 border-slate-200 focus:border-blue-300 focus:ring-blue-200" />
@@ -627,7 +627,7 @@ const LoanRecovery = () => {
                   </div>
 
                   {/* Advanced Filters */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                     <Input placeholder="Search Case Type..." value={caseTypeFilter} onChange={e => setCaseTypeFilter(e.target.value)} className="bg-white/50 border-slate-200 focus:border-blue-300 focus:ring-blue-200" />
 
                     <Input placeholder="Search Court..." value={courtFilter} onChange={e => setCourtFilter(e.target.value)} className="bg-white/50 border-slate-200 focus:border-blue-300 focus:ring-blue-200" />
