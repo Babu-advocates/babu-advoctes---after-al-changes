@@ -611,7 +611,17 @@ const LoanRecovery = () => {
                     
                     <Input placeholder="Search Bank..." value={selectedBank} onChange={e => setSelectedBank(e.target.value)} className="bg-white/50 border-slate-200 focus:border-blue-300 focus:ring-blue-200" />
 
-                    <Input placeholder="Search Status..." value={statusFilter} onChange={e => setStatusFilter(e.target.value)} className="bg-white/50 border-slate-200 focus:border-blue-300 focus:ring-blue-200" />
+                    <Select value={statusFilter} onValueChange={setStatusFilter}>
+                      <SelectTrigger className="bg-white border-slate-200 focus:border-blue-300 focus:ring-blue-200">
+                        <SelectValue placeholder="Search Status..." />
+                      </SelectTrigger>
+                      <SelectContent className="bg-white z-50">
+                        <SelectItem value="">All Status</SelectItem>
+                        <SelectItem value="pending">Pending</SelectItem>
+                        <SelectItem value="decreed">Decreed</SelectItem>
+                        <SelectItem value="dismissed">Dismissed</SelectItem>
+                      </SelectContent>
+                    </Select>
 
                     
                   </div>
