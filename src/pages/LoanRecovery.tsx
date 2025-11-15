@@ -790,14 +790,6 @@ const LoanRecovery = () => {
                             <TableCell>
                               <span className="text-slate-700">{litigationCase.case_type}</span>
                             </TableCell>
-                            <TableCell>
-                              <div className="flex items-center space-x-2">
-                                <Calendar className="h-4 w-4 text-slate-400" />
-                                <span className="text-sm text-slate-600">
-                                  {format(new Date(litigationCase.filing_date), 'yyyy-MM-dd')}
-                                </span>
-                              </div>
-                            </TableCell>
                             <TableCell className="text-right">
                               <div className="flex items-center justify-end gap-2">
                                 <Button className="bg-indigo-600 hover:bg-indigo-700 text-white" size="sm" onClick={() => handleViewHistory(litigationCase)}>
