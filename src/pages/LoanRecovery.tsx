@@ -746,7 +746,7 @@ const LoanRecovery = () => {
                         <TableHead className="font-semibold text-slate-700">Bank</TableHead>
                         <TableHead className="font-semibold text-slate-700">Court</TableHead>
                         <TableHead className="font-semibold text-slate-700">Case Type</TableHead>
-                        <TableHead className="font-semibold text-slate-700">Filing Date</TableHead>
+                        
                         <TableHead className="font-semibold text-slate-700 text-right">Actions</TableHead>
                       </TableRow>
                     </TableHeader>
