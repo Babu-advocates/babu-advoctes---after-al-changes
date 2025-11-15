@@ -611,7 +611,7 @@ const LoanRecovery = () => {
                     
                     <Input placeholder="Search Bank..." value={selectedBank} onChange={e => setSelectedBank(e.target.value)} className="bg-white/50 border-slate-200 focus:border-blue-300 focus:ring-blue-200" />
 
-                    <Select value={statusFilter || "all"} onValueChange={(value) => setStatusFilter(value === "all" ? "" : value)}>
+                    <Select value={statusFilter || "all"} onValueChange={value => setStatusFilter(value === "all" ? "" : value)}>
                       <SelectTrigger className="bg-white border-slate-200 focus:border-blue-300 focus:ring-blue-200">
                         <SelectValue placeholder="Search Status..." />
                       </SelectTrigger>
@@ -638,14 +638,11 @@ const LoanRecovery = () => {
                   {/* Date Range Filters */}
                   <div className="space-y-4">
                     <div className="flex items-center gap-4">
-                      <span className="text-sm font-medium text-slate-700 min-w-[150px]">Filing Date Range:</span>
+                      
                       <div className="flex gap-2 items-center flex-1">
                         <Popover>
                           <PopoverTrigger asChild>
-                            <Button variant="outline" className={cn("justify-start text-left font-normal bg-white/50 border-slate-200 flex-1", !startDate && "text-muted-foreground")}>
-                              <CalendarIcon className="mr-2 h-4 w-4" />
-                              {startDate ? format(startDate, "dd-MM-yyyy") : "Start Date"}
-                            </Button>
+                            
                           </PopoverTrigger>
                           <PopoverContent className="w-auto p-0" align="start">
                             <CalendarComponent mode="single" selected={startDate} onSelect={setStartDate} initialFocus className="pointer-events-auto" />
@@ -654,10 +651,7 @@ const LoanRecovery = () => {
 
                         <Popover>
                           <PopoverTrigger asChild>
-                            <Button variant="outline" className={cn("justify-start text-left font-normal bg-white/50 border-slate-200 flex-1", !endDate && "text-muted-foreground")}>
-                              <CalendarIcon className="mr-2 h-4 w-4" />
-                              {endDate ? format(endDate, "dd-MM-yyyy") : "End Date"}
-                            </Button>
+                            
                           </PopoverTrigger>
                           <PopoverContent className="w-auto p-0" align="start">
                             <CalendarComponent mode="single" selected={endDate} onSelect={setEndDate} initialFocus className="pointer-events-auto" />
