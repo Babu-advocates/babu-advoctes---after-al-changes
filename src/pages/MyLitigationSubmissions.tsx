@@ -52,6 +52,10 @@ import { cn } from "@/lib/utils";
 // History Entry Row Component
 function HistoryEntryRow({ entry, isEditing, isSaving, onEdit, onSave, onDelete, onCancel, selectedCase }: any) {
   const [editedEntry, setEditedEntry] = useState(entry);
+  
+  // Check if hearing date matches today's date
+  const today = format(new Date(), 'yyyy-MM-dd');
+  const isHearingToday = entry.business_on_date === today && !entry.hearing_date;
 
   if (isEditing) {
     return (
@@ -147,14 +151,14 @@ function HistoryEntryRow({ entry, isEditing, isSaving, onEdit, onSave, onDelete,
   }
 
   return (
-    <TableRow>
-      <TableCell className="font-medium">{selectedCase?.case_no || '-'}</TableCell>
-      <TableCell>{selectedCase?.case_type || '-'}</TableCell>
-      <TableCell>{selectedCase?.court_name || '-'}</TableCell>
-      <TableCell>{entry.business_on_date ? format(new Date(entry.business_on_date), 'dd-MM-yyyy') : '-'}</TableCell>
-      <TableCell>{entry.hearing_date ? format(new Date(entry.hearing_date), 'dd-MM-yyyy') : '-'}</TableCell>
-      <TableCell>{entry.purpose_of_hearing}</TableCell>
-      <TableCell className="text-right">
+    <TableRow className={isHearingToday ? "bg-red-100" : ""}>
+      <TableCell className={cn("font-medium", isHearingToday && "text-white bg-red-400")}>{selectedCase?.case_no || '-'}</TableCell>
+      <TableCell className={isHearingToday ? "text-white bg-red-400" : ""}>{selectedCase?.case_type || '-'}</TableCell>
+      <TableCell className={isHearingToday ? "text-white bg-red-400" : ""}>{selectedCase?.court_name || '-'}</TableCell>
+      <TableCell className={isHearingToday ? "text-white bg-red-400" : ""}>{entry.business_on_date ? format(new Date(entry.business_on_date), 'dd-MM-yyyy') : '-'}</TableCell>
+      <TableCell className={isHearingToday ? "text-white bg-red-400" : ""}>{entry.hearing_date ? format(new Date(entry.hearing_date), 'dd-MM-yyyy') : '-'}</TableCell>
+      <TableCell className={isHearingToday ? "text-white bg-red-400" : ""}>{entry.purpose_of_hearing}</TableCell>
+      <TableCell className={cn("text-right", isHearingToday && "bg-red-400")}>
         <div className="flex items-center justify-end gap-2">
           <Button
             size="sm"
@@ -163,7 +167,7 @@ function HistoryEntryRow({ entry, isEditing, isSaving, onEdit, onSave, onDelete,
             disabled={isSaving}
             className="disabled:opacity-50"
           >
-            <Edit2 className="h-4 w-4 text-blue-600" />
+            <Edit2 className={cn("h-4 w-4", isHearingToday ? "text-white" : "text-blue-600")} />
           </Button>
           <Button
             size="sm"
@@ -172,7 +176,7 @@ function HistoryEntryRow({ entry, isEditing, isSaving, onEdit, onSave, onDelete,
             disabled={isSaving}
             className="disabled:opacity-50"
           >
-            <Trash2 className="h-4 w-4 text-red-600" />
+            <Trash2 className={cn("h-4 w-4", isHearingToday ? "text-white" : "text-red-600")} />
           </Button>
         </div>
       </TableCell>
