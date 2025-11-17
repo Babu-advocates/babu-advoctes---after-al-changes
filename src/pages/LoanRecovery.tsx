@@ -332,7 +332,7 @@ const LoanRecovery = () => {
     const latestEntry = history && history.length > 0 ? history[history.length - 1] : null;
     setNewHistoryEntry({
       business_on_date: latestEntry?.hearing_date || litigationCase.filing_date || "",
-      hearing_date: latestEntry?.hearing_date || "",
+      hearing_date: "",
       purpose_of_hearing: ""
     });
     setIsHistoryOpen(true);
