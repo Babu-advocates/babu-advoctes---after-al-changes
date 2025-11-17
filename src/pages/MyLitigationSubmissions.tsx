@@ -54,8 +54,9 @@ function HistoryEntryRow({ entry, isEditing, isSaving, onEdit, onSave, onDelete,
   const [editedEntry, setEditedEntry] = useState(entry);
   
   // Check if hearing date matches today's date
-  const today = format(new Date(), 'yyyy-MM-dd');
-  const isHearingToday = entry.business_on_date === today && !entry.hearing_date;
+  const today = format(new Date(), 'dd-MM-yyyy');
+  const hearingDate = entry.business_on_date ? format(new Date(entry.business_on_date), 'dd-MM-yyyy') : '';
+  const isHearingToday = hearingDate === today && !entry.hearing_date;
 
   if (isEditing) {
     return (
