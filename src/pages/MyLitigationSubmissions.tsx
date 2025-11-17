@@ -456,10 +456,10 @@ export default function MyLitigationSubmissions() {
       } else {
         setHistoryEntries(data || []);
         // Initialize new history entry
-        const latestEntry = data && data.length > 0 ? data[0] : null;
+        const latestEntry = data && data.length > 0 ? data[data.length - 1] : null;
         setNewHistoryEntry({
           business_on_date: latestEntry?.hearing_date || caseItem.filing_date || "",
-          hearing_date: latestEntry?.hearing_date || "",
+          hearing_date: "",
           purpose_of_hearing: ""
         });
       }
